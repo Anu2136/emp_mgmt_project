@@ -90,7 +90,7 @@ $$ LANGUAGE plpgsql;
 
 -- Create trigger for timestamp
 CREATE TRIGGER update_timestamp_trigger
-BEFORE INSERT ON Attendance
+BEFORE INSERT ON Attendances
 FOR EACH ROW
 EXECUTE FUNCTION update_timestamp();
 
@@ -124,7 +124,7 @@ BEGIN
     INTO 
         total_hours
     FROM 
-        Attendance
+        Attendances
     WHERE 
         EmployeeID = p_employee_id
         AND AttendanceDate BETWEEN p_start_date AND p_end_date;
